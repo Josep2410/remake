@@ -1,0 +1,14 @@
+{
+  "name": "remake",
+  "version": "1.0.0",
+  "description": "a remake of a Node project with my flare",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joseph Moreno",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
