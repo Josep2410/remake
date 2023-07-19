@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const Profile = require('./models/profileSchema')
+const profileRoutes = require('./routes/profileRoutes')
 
 const app = express()
 app.set('view engine', 'ejs')
@@ -27,23 +27,6 @@ app.get('/mylikes', (req, res) => {
 })
 
 
-app.get('/profiles/', (req, res) => {
-  res.render('index')
-})
-
-app.post('/profiles', (req, res) => {
-  const profile = new Profile(req.body)
-  profile.save()
-    .then(result => {
-      res.render('index', { result })
-    })
-    .catch(err => console.log(err))
-
-})
-
-app.get('/profiles/create', (req, res) => {
-  res.render('create')
-})
-
+app.use(profileRoutes)
 
 
