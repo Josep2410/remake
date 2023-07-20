@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
 
+/* ==========GLOBAL============== */
 body {
   font-family: 'Open Sans', sans-serif;
   font-family: 'Roboto', sans-serif;
@@ -7,17 +8,30 @@ body {
   height: 100vh;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.links a {
+  transition: all .2s ease-in-out;
+}
+
+.links a:hover {
+  cursor: pointer;
+  transform: scale(1.15);
+}
+
 h2 {
   font-size: 1.7rem;
   margin-left: 10px;
 }
 
-a {
-  text-decoration: none;
-  color: black;
+ul {
   font-size: 1.4rem;
 }
 
+/* =======================NAV ===============*/
 nav {
   display: flex;
   width: 100%;
@@ -26,7 +40,7 @@ nav {
 }
 
 nav>ul {
-  width: 21%;
+  width: 22%;
   display: flex;
   justify-content: space-between;
   align-items: end;
@@ -34,7 +48,7 @@ nav>ul {
 }
 
 /* =========FORM====================== */
-main {
+main.form {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -54,12 +68,85 @@ form {
 
 }
 
-@media screen and (max-width: 900px) {
-  a {
+/*========================INDEX================= */
+main.index-main {
+  display: flex;
+  flex-direction: column;
+}
+
+main>h2 {
+  margin-left: 5%;
+}
+
+div.grid-container {
+  align-self: center;
+  width: 85%;
+  border: 1px solid black;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 4%;
+  row-gap: 6%;
+  padding-bottom: 2%;
+
+}
+
+.grid-child {
+  height: 200px;
+  width: 100%;
+  border: 1px solid black;
+  position: relative;
+  transition: transform .3s;
+  border-radius: 5%;
+  overflow: hidden;
+}
+
+.grid-child:hover {
+  transform: scale(1.2)
+}
+
+
+
+.grid-child>img {
+  position: static;
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+
+}
+
+div.info {
+  width: 100%;
+  height: 40%;
+  text-align: center;
+  position: static;
+}
+
+
+@media screen and (max-width: 1000px) {
+  ul {
     font-size: 1.2rem;
   }
 
   nav>ul {
-    width: 25%;
+    width: 27%;
+  }
+
+  div.grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 750px) {
+  ul {
+    font-size: 1rem;
+  }
+
+  nav>ul {
+    width: 30%;
+  }
+
+  div.grid-container {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
