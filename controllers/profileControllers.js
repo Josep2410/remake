@@ -9,7 +9,8 @@ const get_All_Profiles = (req, res) => {
 }
 
 const post_a_Profile = (req, res) => {
-  const profile = new Profile(req.body)
+  const obj = { ...req.body, isLiked: false }
+  const profile = new Profile(obj)
   profile.save()
     .then(result => {
       res.redirect('/profiles')
@@ -25,7 +26,7 @@ const find_Profile = (req, res) => {
   const id = req.params.id
   Profile.findById(id)
     .then(result => res.render('details', { result }))
-  console.log(id)
+
 }
 
 const delete_Profile = (req, res) => {
@@ -37,10 +38,26 @@ const delete_Profile = (req, res) => {
     .catch(err => console.log(err))
 }
 
+const update_Profile = (req, res) => {
+  let isLiked = null
+  const id = req.params.id
+  Profile.findById(id)
+    .then(result => {
+      isLiked = result.isLiked
+    })
+    .then(function () {
+      Profile.updateOne({ _id: id }, { isLiked: !isLiked })
+        .then(result => console.log(result))
+
+    })
+
+}
+
 module.exports = {
   get_All_Profiles,
   post_a_Profile,
   render_create_page,
   find_Profile,
-  delete_Profile
+  delete_Profile,
+  update_Profile
 }
