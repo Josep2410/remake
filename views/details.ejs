@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+   <%- include('./partials/nav.ejs') %>
+  <p>hello <%=result.name%></p>
+  <button class="delete" data-doc="<%=result._id%>">Delete</button>
+  <button class="likeBtn" data-doc="<%=result._id%>">Like</button>
+  <script src="/scripts/details.js" type="module" ></script>
+</body>
+</html>

@@ -8,6 +8,23 @@
 </head>
 <body>
   <%- include('./partials/nav.ejs') %>
-  <p>this page has yet to be worked on</p>
+  <main class="index-main" >
+    <h2>MY LIKES</h2>
+   <div class="grid-container">
+     <%result.forEach(profile =>{%>
+       <a href='/profiles/<%=profile._id%>'>
+         <div class="grid-child">
+           <img src="selfie.JPG" alt="pic">
+           <div class="info">
+             <p><%=profile.name%></p>%>
+ 
+           </div>
+         </div>
+       </a>
+     <%})%> 
+   </div>
+     
+ 
+  </main>
 </body>
 </html>
