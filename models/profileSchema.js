@@ -5,6 +5,10 @@ const profileSchema = new Schema({
   name: {
     type: String,
     required: true
+  },
+  isLiked: {
+    type: Boolean,
+    required: false
   }
 })
 
