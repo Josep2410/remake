@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const profileRoutes = require('./routes/profileRoutes')
+const Profile = require('./models/profileSchema')
 
 const app = express()
 app.set('view engine', 'ejs')
@@ -23,7 +24,9 @@ app.get('/', (req, res) => {
 })
 
 app.get('/mylikes', (req, res) => {
-  res.render('mylikes')
+  Profile.find({ isLiked: true })
+    .then(result => res.render('mylikes', { result: result.reverse() }))
+
 })
 
 
