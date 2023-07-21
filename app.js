@@ -29,6 +29,9 @@ app.get('/mylikes', (req, res) => {
 
 })
 
+app.use((req, res) => {
+  res.render('error')
+})
 
 app.use(profileRoutes)
 
