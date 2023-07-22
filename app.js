@@ -26,13 +26,13 @@ app.get('/', (req, res) => {
 app.get('/mylikes', (req, res) => {
   Profile.find({ isLiked: true })
     .then(result => res.render('mylikes', { result: result.reverse() }))
-
 })
+
+
+
+app.use(profileRoutes)
 
 app.use((req, res) => {
   res.render('error')
 })
-
-app.use(profileRoutes)
-
 
