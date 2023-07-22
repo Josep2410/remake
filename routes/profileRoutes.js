@@ -11,6 +11,8 @@ router.get('/profiles/create', profilePaths.render_create_page)
 
 router.get('/profiles/:id', profilePaths.find_Profile)
 
+router.get('/profiles/edit/:id', profilePaths.get_edit_page)
+
 router.delete('/profiles/:id', profilePaths.delete_Profile)
 
 router.put('/profiles/:id', profilePaths.update_Profile)

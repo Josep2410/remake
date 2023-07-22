@@ -48,9 +48,11 @@ const update_Profile = (req, res) => {
     .then(function () {
       Profile.updateOne({ _id: id }, { isLiked: !isLiked })
         .then(result => console.log(result))
-
     })
+}
 
+const get_edit_page = (req, res) => {
+  res.render('edit')
 }
 
 module.exports = {
@@ -59,5 +61,6 @@ module.exports = {
   render_create_page,
   find_Profile,
   delete_Profile,
-  update_Profile
+  update_Profile,
+  get_edit_page
 }
