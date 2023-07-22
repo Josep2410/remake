@@ -2,7 +2,8 @@
 
 const trashcan = document.querySelector('.delete')
 const likeBtn = document.querySelector('.likeBtn')
-const likeButton = document.querySelector('#likeBtn')
+
+
 
 trashcan.addEventListener('click', (e) => {
   const endpoint = `/profiles/${trashcan.dataset.doc}`
@@ -15,7 +16,7 @@ trashcan.addEventListener('click', (e) => {
 })
 
 likeBtn.addEventListener('click', (e) => {
-
+  changeBtnText(likeBtn)
   const endpoint = `/profiles/${likeBtn.dataset.doc}`
   fetch(endpoint, { method: 'PUT' })
     .then(res => res.json())
@@ -23,3 +24,11 @@ likeBtn.addEventListener('click', (e) => {
     .catch(err => console.log(err))
 })
 
+
+function changeBtnText(btn) {
+  if (btn.textContent === 'Like') {
+    btn.textContent = 'Unlike'
+  } else {
+    btn.textContent = 'Like'
+  }
+}
