@@ -9,7 +9,6 @@
 <body>
    <%- include('./partials/nav.ejs') %>
   <p>hello <%=result.name%></p>
-  <button class="delete" data-doc="<%=result._id%>">Delete</button>
   <button class="likeBtn" data-doc="<%=result._id%>"><%=result.isLiked?'Unlike' : 'Like'%></button>
   <a href="/profiles/edit/<%=result._id%>">Edit</a>
   <script src="/scripts/details.js" type="module" ></script>

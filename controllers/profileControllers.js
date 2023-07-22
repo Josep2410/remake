@@ -52,7 +52,12 @@ const update_Profile = (req, res) => {
 }
 
 const get_edit_page = (req, res) => {
-  res.render('edit')
+  const id = req.params.id
+  Profile.findById(id)
+    .then(result => {
+      res.render('edit', { result })
+    })
+
 }
 
 module.exports = {

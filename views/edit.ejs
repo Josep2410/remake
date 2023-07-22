@@ -9,5 +9,20 @@
 <body>
   <%- include('./partials/nav.ejs') %>
   Edit Page
+  <p><%=result.name%></p>
+  <button class="delete" data-doc="<%=result._id%>">Delete</button>
+  <script>
+    const trashcan = document.querySelector('.delete')
+
+    trashcan.addEventListener('click', (e) => {
+      const endpoint = `/profiles/edit/${trashcan.dataset.doc}`
+      fetch(endpoint, {
+        method: 'DELETE'
+      })
+        .then(response => response.json())
+        .then(data => window.location.href = data.redirect)
+        .catch(err => console.log(err))
+})
+  </script>
 </body>
 </html>
